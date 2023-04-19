@@ -55,6 +55,7 @@ export class StudentsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((resp: any) => {
       if (resp) {
+        this.listCourses();
         this.snackBar.open("Registro correcto.", 'Ok', {
           horizontalPosition: 'left',
           verticalPosition: 'bottom',
