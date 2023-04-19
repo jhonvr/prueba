@@ -25,6 +25,7 @@ export class ModalCoursesComponent implements OnInit {
   startDate: FormControl;
   endDate: FormControl;
   idCourseType: FormControl;
+  courseType: FormControl;
 
   courseList: CourseType[] = new Array<CourseType>();
 
@@ -64,13 +65,18 @@ export class ModalCoursesComponent implements OnInit {
       Validators.required,
     ]);
 
+    this.courseType = new FormControl(this.data.item?.courseType, [
+      Validators.required,
+    ]);
+
     this.options = fb.group({
       id: data.item.id,
       name: this.name,
       schedule: this.schedule,
       startDate: this.startDate,
       endDate: this.endDate,
-      courseType: this.idCourseType,
+      idCourseType: this.idCourseType,
+      courseType: this.courseType
     });
   }
 
@@ -106,6 +112,10 @@ export class ModalCoursesComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   };
+
+  typeSelectCourse = () => {
+    this.courseType.patchValue(this.courseList.find(x=>x.id === Number(this.idCourseType.value))?.name);
+  }
 }
 
 export interface DialogDataModalCourse {
