@@ -1,0 +1,9 @@
+{
+  "courses": [
+    {"id": 1, "name": "Matemática", "schedule": "20:30", "startDate": "", "endDate": "", "courseType": "Presencial", "idCourseType": 1}
+  ],
+  "students": [
+    { "id": 1, "name": "demo", "lastName":"demo", "age": 1, "identificationCard": 12345678, "email": "demo@demo.com" }
+  ],
+  "profile": { "name": "typicode" }
+}

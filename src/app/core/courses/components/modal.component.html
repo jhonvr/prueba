@@ -1,0 +1,51 @@
+<div class="content-modal admin" [formGroup]="options">
+
+  <h1 mat-dialog-title>{{data.title}} Curso</h1>
+  <div mat-dialog-content>
+
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre:</mat-label>
+        <input [formControl]="name" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Horario:</mat-label>
+        <input [formControl]="schedule" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha inicio:</mat-label>
+        <input matInput [matDatepicker]="dp" [formControl]="startDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha fin:</mat-label>
+        <input matInput [matDatepicker]="dpEnd" [formControl]="endDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="dpEnd"></mat-datepicker-toggle>
+        <mat-datepicker #dpEnd></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo:</mat-label>
+        <mat-select [formControl]="idCourseType">
+          <mat-option *ngFor="let item of courseList" [value]="item.id">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="dialogRef.close()" style="margin-right: 5px;">Cancelar</button>
+    <button [disabled]="options.invalid" mat-raised-button (click)="send()" color="primary">Guardar</button>
+  </div>
+
+</div>

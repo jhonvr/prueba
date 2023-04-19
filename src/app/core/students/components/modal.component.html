@@ -1,0 +1,61 @@
+<div class="content-modal admin" [formGroup]="options">
+
+  <h1 mat-dialog-title>{{data.title}} Curso</h1>
+  <div mat-dialog-content>
+
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre:</mat-label>
+        <input [formControl]="name" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido:</mat-label>
+        <input [formControl]="lastName" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Edad:</mat-label>
+        <input [formControl]="age" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Cédula:</mat-label>
+        <input [formControl]="identificationCard" matInput required>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Correo:</mat-label>
+        <input type="email" [formControl]="email" matInput required>
+      </mat-form-field>
+    </div>
+
+    <div class="mb-3">
+      <!-- <mat-form-field appearance="fill">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">
+            <mat-icon>search</mat-icon>
+          </span>
+          <input placeholder="Busca información del BCRP" (input)="validateLetterNumber($event)" (keyup.enter)="onKeyDown()" matInput [formControl]="searchControl" name="searchControl" type="text" class="form-control" [matAutocomplete]="auto">
+        </div>
+        <mat-autocomplete #auto="matAutocomplete"
+          (optionSelected)="changeSearch($event)">
+          <mat-option *ngFor="let item of $searchList | async"
+            [value]="item.as_descripcion">{{item.as_descripcion}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field> -->
+    </div>
+
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="dialogRef.close()" style="margin-right: 5px;">Cancelar</button>
+    <button [disabled]="options.invalid" mat-raised-button (click)="send()" color="primary">Guardar</button>
+  </div>
+
+</div>
