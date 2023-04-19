@@ -4,6 +4,5 @@
   ],
   "students": [
     { "id": 1, "name": "demo", "lastName":"demo", "age": 1, "identificationCard": 12345678, "email": "demo@demo.com" }
-  ],
-  "profile": { "name": "typicode" }
+  ]
 }
